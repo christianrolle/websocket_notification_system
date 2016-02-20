@@ -9,4 +9,8 @@ RSpec.describe Relationship, :type => :model do
     it { is_expected.to validate_presence_of(:follower) }
   end
 
+  describe "associations" do
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:follower).class_name('User') }
+  end
 end
