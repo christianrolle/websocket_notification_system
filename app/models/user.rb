@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :relationships
-  has_many :leaders, through: :relationships, source: :user
+  has_many :followers, through: :relationships
+  has_many :leaderships, class_name: Relationship, foreign_key: :follower_id
+  has_many :leaders, through: :leaderships, source: :user
 
   validates :name, presence: true
 
