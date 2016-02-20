@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resource  :session
-  resource  :user
+  resources :user
   root 'sessions#new'
 end
