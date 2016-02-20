@@ -8,6 +8,17 @@ RSpec.describe User, :type => :model do
     it { is_expected.to validate_presence_of(:name) }
   end
 
+  describe "associations" do
+    it { is_expected.to have_many(:relationships) }
+    it { is_expected.to have_many(:followers).through(:relationships) }
+    it { is_expected.to have_many(:leaderships)
+                          .class_name('Relationship')
+                          .with_foreign_key('follower_id') }
+    it { is_expected.to have_many(:leaders)
+                          .through(:leaderships)
+                          .source(:user) }
+  end
+
   context "when saved" do
     describe "scopes" do
       describe ".by_name" do
