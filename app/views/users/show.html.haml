@@ -4,6 +4,6 @@
   = @user.name
 .row
   .users
-    %h4 users
+    %h4 Other users
     %ul
-      = render User.by_name
+      = render User.excluding(@user).by_name
