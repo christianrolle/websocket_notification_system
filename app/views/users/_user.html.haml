@@ -1,4 +1,5 @@
 %li{ id: dom_id(user) }
-  .name
+  .user
+    %span.relationship= 'Following' if @user.led_by? user
     = user.name
-  .relationship
+
