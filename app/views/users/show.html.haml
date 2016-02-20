@@ -2,4 +2,8 @@
 %p
   Name:
   = @user.name
-
+.row
+  .users
+    %h4 users
+    %ul
+      = render User.all
