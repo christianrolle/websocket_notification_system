@@ -11,15 +11,23 @@ RSpec.describe User, :type => :model do
   context "when saved" do
     describe "scopes" do
       describe ".by_name" do
-        let!(:user) { FactoryGirl.create :user, name: 'Bbb' }
+        let!(:user) { FactoryGirl.create :user, name: 'Bob' }
 
         it "should return users ordered by their name ascending" do
-          subject.name = 'Aaa'
+          subject.name = 'Alice'
           subject.save
           expect(User.by_name).to eq([subject, user])
         end
       end
 
+      describe ".excluding" do
+        before { subject.save }
+        let!(:user) { FactoryGirl.create :user, name: 'Bob' }
+
+        it "should return all users except a certain user" do
+          expect(User.excluding subject).to eq([user])
+        end
+      end
     end
   end
 end
