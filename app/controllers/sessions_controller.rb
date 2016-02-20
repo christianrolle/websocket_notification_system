@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def new
-    @users = User.all
+    @users = User.by_name
   end
 
   def create
