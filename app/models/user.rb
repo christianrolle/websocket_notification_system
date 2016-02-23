@@ -11,6 +11,8 @@ class User < ApplicationRecord
     where.not id: user
   }
 
+  alias_attribute :to_s, :name
+
   def led_by? user
     leaders.include? user
   end
