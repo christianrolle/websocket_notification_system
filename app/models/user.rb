@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :followers, through: :relationships
   has_many :leaderships, class_name: Relationship, foreign_key: :follower_id
   has_many :leaders, through: :leaderships, source: :user
+  has_many :user_notifications
+  has_many :notifications, through: :user_notifications
 
   validates :name, presence: true
 
