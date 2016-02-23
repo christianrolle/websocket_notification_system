@@ -15,11 +15,14 @@ RSpec.describe Notifier, :type => :model do
     let!(:notifier) { Notifier.new user }
 
     context "when invalid model" do
-      it "should return the model having at least 1 validation error" do
-        follower.name = nil
-        invalid_follower = notifier.create! follower
-        expect(invalid_follower).to be(follower)
-        expect(invalid_follower.errors.count).to be > 0
+      before { follower.name = nil }
+      it "should return the false" do
+        expect(notifier.create! follower).to be(false)
+      end
+
+      it "should add validation errors to model" do
+        notifier.create! follower
+        expect(follower.errors.count).to be > 0
       end
     end
 

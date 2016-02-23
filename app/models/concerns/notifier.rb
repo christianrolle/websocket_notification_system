@@ -2,7 +2,7 @@ class Notifier < SimpleDelegator
   alias_method :user, :__getobj__
 
   def create! subject
-    return subject if subject.invalid?
+    return false if subject.invalid?
     subject.transaction do
       subject.save!
       notify user.followers, subject
