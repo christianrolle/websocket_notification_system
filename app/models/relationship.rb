@@ -3,4 +3,5 @@ class Relationship < ApplicationRecord
   belongs_to :follower, class_name: User
 
   validates :user, :follower, presence: true
+  validates :follower_id, uniqueness: { scope: :user_id }
 end
