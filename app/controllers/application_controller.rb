@@ -19,4 +19,9 @@ class ApplicationController < ActionController::Base
     @current_user = User.find_by id: user_id
     cookies.signed[:user_id] ||= user_id if @current_user
   end
+
+  def render_validation errors
+    flash.now[:error] = errors.full_messages.join('\n')
+    render template: 'shared/render_validations'
+  end
 end
