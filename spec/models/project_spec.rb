@@ -21,4 +21,17 @@ RSpec.describe Project, :type => :model do
       expect(subject.to_s).to eq(subject.topic)
     end
   end
+
+  context "when saved" do
+    describe "scopes" do
+      describe ".by_newest_first" do
+        let!(:project) { FactoryGirl.create :project }
+
+        it "should return projects ordered by their creation date." do
+          subject.save
+          expect(Project.by_newest_first).to eq([subject, project])
+        end
+      end
+    end
+  end
 end
