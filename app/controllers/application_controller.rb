@@ -24,4 +24,10 @@ class ApplicationController < ActionController::Base
     flash.now[:error] = errors.full_messages.join('\n')
     render template: 'shared/render_validations'
   end
+
+  def unauthenticate_user
+    ActionCable.server.disconnect(current_user: @current_user)
+    @current_user = nil
+    cookies.delete(:user_id)
+  end
 end
