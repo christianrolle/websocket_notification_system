@@ -40,7 +40,8 @@ you get me.
 
 ## Setup:
 
-You can make it run by migrating the database and starting the servers:
+You can make it run by migrating the database (there are also some user seeds)
+and starting the servers:
 
 * redis-server (please make sure it is installed)
 * rails s
@@ -51,7 +52,8 @@ Follow a user (say Alice).
 Authenticate as that followed user (Alice) and add a project and so on. 
 Watch the Bobs notifications.
 
-Please let me know, what you didn't like or which expectactions I failed.
+Please let me know, what you didn't like or the things you would have 
+done different.
 
 Kind regards
 Christian
