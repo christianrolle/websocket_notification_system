@@ -9,4 +9,9 @@ class SessionsController < ApplicationController
     authenticate_user(params[:user_id])
     redirect_to current_user
   end
+
+  def destroy
+    unauthenticate_user
+    redirect_to new_session_url
+  end
 end
