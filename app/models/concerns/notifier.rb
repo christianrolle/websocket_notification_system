@@ -21,7 +21,7 @@ class Notifier < SimpleDelegator
   end
 
   def message model
-    key = model.class.name.downcase
+    key = model.class.name.underscore
     I18n.t "notifications.#{key}", user: user.to_s, name: model.to_s
   end
 end
