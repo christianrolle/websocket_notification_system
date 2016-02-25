@@ -1,0 +1,7 @@
+= form_for project, remote: true do |f|
+  .form-group
+    = f.label :topic, 'New Project'
+    = f.text_field :topic, autofocus: true, class: 'form-control', 
+        placeholder: 'Topic'
+  
+  = f.submit 'Create', class: 'button right'
