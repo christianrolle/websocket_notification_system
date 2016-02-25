@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resource  :session
   resources :users
   resources :relationships
+
+  mount ActionCable.server => "/cable"
 end
