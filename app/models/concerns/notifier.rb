@@ -5,18 +5,18 @@ class Notifier < SimpleDelegator
     return false if subject.invalid?
     subject.transaction do
       subject.save!
-      notify user.followers, subject
+      topic = message subject
+      notification = Notification.create!(topic: topic, users: followers)
+      notify followers, notification
     end
     subject
   end
 
   private
 
-  def notify followers, subject
-    topic = message subject
-    notification = Notification.create! topic: topic
+  def notify followers, notification
     followers.each do |follower|
-      follower.user_notifications.create! notification: notification
+      NotificationRelayJob.perform_later follower, notification
     end
   end
 
