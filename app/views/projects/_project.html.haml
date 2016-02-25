@@ -1,1 +1,3 @@
-.topic= project.topic
+.project{ id: dom_id(project) }
+  %span.like= presented_current_user.link_to_like project
+  = project.topic
