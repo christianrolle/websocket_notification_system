@@ -1,4 +1,5 @@
 en:
   hello: "Hello world"
   notifications:
-    relationship: '%{user} started following %{name}'
+    relationship: "%{user} started following %{name}"
+    project: "%{user} created the project \"%{name}\""
