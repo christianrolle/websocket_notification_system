@@ -3,3 +3,4 @@ en:
   notifications:
     relationship: "%{user} started following %{name}"
     project: "%{user} created the project \"%{name}\""
+    project_like: "%{user} liked the project \"%{name}\""
