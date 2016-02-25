@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :leaders, through: :leaderships, source: :user
   has_many :user_notifications
   has_many :notifications, through: :user_notifications
+  has_many :project_likes
 
   validates :name, presence: true
 

@@ -19,6 +19,7 @@ RSpec.describe User, :type => :model do
                           .source(:user) }
     it { is_expected.to have_many(:user_notifications) }
     it { is_expected.to have_many(:notifications).through(:user_notifications) }
+    it { is_expected.to have_many(:project_likes) }
   end
 
   describe "#to_s" do
