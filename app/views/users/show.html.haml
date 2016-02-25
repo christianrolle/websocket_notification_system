@@ -2,8 +2,13 @@
 %p
   Name:
   = @user.name
+  = link_to 'Logout', session_path, method: :delete
 .row
   .users
     %h4 Other users
     %ul
       = render User.excluding(@user).by_name
+.row
+  .notifications{ data: { channel: "notifications", 'user-id' => @user.id } }
+    %h4 Notifications
+    = render @user.notifications
