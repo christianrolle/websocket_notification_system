@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :relationships
   resources :projects
+  resources :project_likes
 
   mount ActionCable.server => "/cable"
 end
