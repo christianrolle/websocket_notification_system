@@ -8,13 +8,14 @@
     %h4 Other users
     %ul
       = render User.excluding(@user).by_name
-.row
-  .notifications{ data: { channel: "notifications", 'user-id' => @user.id } }
-    %h4 Notifications
-    = render @user.notifications
 
   #projects
     %h4 All Projects
     .list= render Project.by_newest_first
     = render partial: 'projects/form', locals: { project: Project.new }
+
+.row
+  .notifications{ data: { channel: "notifications", 'user-id' => @user.id } }
+    %h4 Notifications
+    = render @user.notifications
 
