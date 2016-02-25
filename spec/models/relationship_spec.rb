@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe Relationship, :type => :model do
   subject { FactoryGirl.build :relationship }
   
+  describe "delegations" do
+    it { is_expected.to delegate_method(:to_s).to(:user) }
+  end
+
   describe "validations" do
     it { is_expected.to be_valid }
     it { is_expected.to validate_presence_of(:user) }
