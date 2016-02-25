@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   has_many :relationships
   has_many :followers, through: :relationships
   has_many :leaderships, class_name: Relationship, foreign_key: :follower_id
@@ -16,7 +17,4 @@ class User < ApplicationRecord
 
   alias_attribute :to_s, :name
 
-  def led_by? user
-    leaders.include? user
-  end
 end

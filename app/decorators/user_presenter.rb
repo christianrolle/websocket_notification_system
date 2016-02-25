@@ -9,7 +9,8 @@ class UserPresenter < Presenter
   end
 
   def link_to_relationship other_user
-    return following_text if user.led_by? other_user
+    #return following_text if user.led_by? other_user
+    return following_text if follows? other_user
     path = h.relationships_path(relationship: { user_id: other_user.id }, 
                               authenticity_token: h.form_authenticity_token)
     h.link_to 'Follow', path, remote: true, method: :post
@@ -27,5 +28,9 @@ class UserPresenter < Presenter
 
   def likes? project
     user.project_like_ids.include? project.id
+  end
+
+  def follows? other_user
+    user.leader_ids.include? other_user.id
   end
 end
