@@ -15,6 +15,6 @@
 
   #projects
     %h4 All Projects
-    = render Project.by_newest_first
+    .list= render Project.by_newest_first
     = render partial: 'projects/form', locals: { project: Project.new }
 
