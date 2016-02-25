@@ -16,7 +16,8 @@ RSpec.describe Notifier, :type => :model do
 
     context "when invalid model" do
       before { follower.name = nil }
-      it "should return the false" do
+
+      it "should return false" do
         expect(notifier.create! follower).to be(false)
       end
 
@@ -27,11 +28,12 @@ RSpec.describe Notifier, :type => :model do
     end
 
     context "when valid model" do
-      let!(:persisted_follower) { notifier.create! follower }
+      let!(:relationship) { FactoryGirl.build :relationship, user: follower }
+      let!(:persisted_relationship) { notifier.create! relationship }
 
       it "should return the persisted model" do
-        expect(persisted_follower).to be(follower)
-        expect(persisted_follower.new_record?).to be(false)
+        expect(persisted_relationship).to be(relationship)
+        expect(persisted_relationship.new_record?).to be(false)
       end
 
       it "should create one notification" do
