@@ -1,3 +1,9 @@
+# websocket_notification_system
+
+Code exercise
+
+
+
 ## Problem explanation
 
 In our system users can follow other users, create and like projects.
@@ -51,11 +57,3 @@ Open two browsers and authenticate as a user (say Bob).
 Follow a user (say Alice). 
 Authenticate as that followed user (Alice) and add a project and so on. 
 Watch the Bobs notifications.
-
-Please let me know, what you didn't like or the things you would have 
-done different.
-
-Kind regards
-Christian
-
-
